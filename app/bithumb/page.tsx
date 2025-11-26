@@ -1,8 +1,13 @@
-export default function Page () {
+export default function Page() {
     return (
         <div>
-        <h1>Bithumb Page</h1>
-        <p>Welcome to the Bithumb page!</p>
+            <p>Welcome to the Bithumb page!</p>
         </div>
-    )
+    );
 }
+
+/**
+ * 구조
+ * <거래소 /> <시장동향 />
+ * <바텀 네비게이션 />
+ */
