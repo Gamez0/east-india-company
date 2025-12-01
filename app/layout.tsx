@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import BithumbHeader from "@/components/header/BithumbHeader";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -25,26 +26,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`bithumb-font ${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 <BithumbHeader />
                 {children}
             </body>
         </html>
-    );
-}
-
-function BithumbHeader() {
-    // logo, 상단 탭, 검색, 설정
-    return (
-        <header>
-            logo
-            <nav>
-                <button>거래소</button>
-                <button>시장동향</button>
-            </nav>
-            <button>검색</button>
-            <button>설정</button>
-        </header>
     );
 }
