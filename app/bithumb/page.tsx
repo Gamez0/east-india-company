@@ -1,13 +1,18 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 export default function Page() {
     return (
-        <div>
-            <p>Welcome to the Bithumb page!</p>
+        <div className="flex flex-col h-[calc(100vh-114px)]">
+            <Tabs>
+                <TabsList>
+                    <TabsTrigger value="live-chart">실시간 차트</TabsTrigger>
+                    <TabsTrigger value="holding">보유</TabsTrigger>
+                    <TabsTrigger value="like">관심</TabsTrigger>
+                </TabsList>
+                <TabsContent value="live-chart"></TabsContent>
+                <TabsContent value="holding"></TabsContent>
+                <TabsContent value="like"></TabsContent>
+            </Tabs>
         </div>
     );
 }
-
-/**
- * 구조
- * <거래소 /> <시장동향 />
- * <바텀 네비게이션 />
- */
