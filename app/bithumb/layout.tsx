@@ -20,10 +20,12 @@ export default function BithumbLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex flex-col">
-            <BithumbHeader />
-            {children}
-            <BottomNavigation />
+        <div className="flex flex-col items-center bg-zinc-50">
+            <div className="max-w-3xl w-full bg-white">
+                <BithumbHeader />
+                {children}
+                <BottomNavigation />
+            </div>
         </div>
     );
 }
