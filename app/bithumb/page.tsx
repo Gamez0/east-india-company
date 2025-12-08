@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Page() {
     return (
-        <div className="flex flex-col h-[calc(100vh-114px)]">
+        <main className="flex flex-col h-[calc(100vh-114px)]">
             <Tabs>
                 <TabsList>
                     <TabsTrigger value="live-chart">실시간 차트</TabsTrigger>
@@ -13,6 +13,6 @@ export default function Page() {
                 <TabsContent value="holding"></TabsContent>
                 <TabsContent value="like"></TabsContent>
             </Tabs>
-        </div>
+        </main>
     );
 }
