@@ -5,6 +5,17 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import PortfolioPieChart from "./PortfolioPieChart";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 export default function Page() {
     const totalAssets = 20144;
@@ -13,8 +24,35 @@ export default function Page() {
     const profit = 157;
     const profitRate = 3.14;
 
+    const assets = [
+        {
+            imgSrc: "/bithumb/coin/coin-btc.png",
+            name: "비트코인 (BTC)",
+            amount: "0.00003846 BTC",
+            value: 5178,
+            profit: 179,
+            profitRate: 3.58,
+        },
+        {
+            imgSrc: "/bithumb/coin/coin-eth.png",
+            name: "이더리움 (ETH)",
+            amount: "0.00012345 ETH",
+            value: 8123,
+            profit: 245,
+            profitRate: 3.11,
+        },
+        {
+            imgSrc: "/bithumb/coin/coin-sol.png",
+            name: "솔라리움 (SOL)",
+            amount: "10.5678 SOL",
+            value: 6843,
+            profit: 132,
+            profitRate: 2.58,
+        },
+    ];
+
     return (
-        <main className="h-[calc(100vh-114px)] px-8">
+        <main className="flex flex-col h-[calc(100vh-114px)] px-6.5 gap-2">
             <section className="flex flex-col pt-10 pb-4 gap-8">
                 <div className="flex gap-2">
                     <div className="flex flex-col bg-[#f2f4f6] p-4 rounded-2xl w-full">
@@ -29,7 +67,7 @@ export default function Page() {
                 <div>
                     <p className="">총 보유자산</p>
                     <div className="flex items-end">
-                        <span className="text-2xl">
+                        <span className="text-2xl font-semibold">
                             {totalAssets.toLocaleString()}
                         </span>
                         <span>원</span>
@@ -57,7 +95,75 @@ export default function Page() {
                     </AccordionItem>
                 </Accordion>
             </section>
-            <section></section>
+            <section className="flex flex-col gap-4">
+                <div className="flex flex-row justify-between">
+                    <Select>
+                        <SelectTrigger className="p-0 border-none gap-1">
+                            <SelectValue
+                                className="text-sm text-[#1c2028]"
+                                placeholder="보유자산 높은 순"
+                                defaultValue="descAssetHoldings"
+                            />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                <SelectItem value="krOrder">
+                                    가나다 순
+                                </SelectItem>
+                                <SelectItem value="descAssetHoldings">
+                                    보유자산 높은 순
+                                </SelectItem>
+                                <SelectItem value="ascAssetHoldings">
+                                    보유자산 낮은 순
+                                </SelectItem>
+                                <SelectItem value="descProfit">
+                                    총 수익률 높은 순
+                                </SelectItem>
+                                <SelectItem value="ascProfit">
+                                    총 수익률 낮은 순
+                                </SelectItem>
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>
+
+                    <div className="flex items-center space-x-2">
+                        <Checkbox id="hideSmallAssets" />
+                        <Label
+                            htmlFor="hideSmallAssets"
+                            className="text-sm text-[#707882]"
+                        >
+                            비상장/소액 자산 숨기기
+                        </Label>
+                    </div>
+                </div>
+                <div className="flex flex-col gap-4.5">
+                    {assets.map((asset, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-row justify-between"
+                        >
+                            <div className="flex flex-row gap-2 items-center">
+                                <img src={asset.imgSrc} className="size-8" />
+                                <div>
+                                    <p className="">{asset.name}</p>
+                                    <p className="text-xs text-[#707882]">
+                                        {asset.amount}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-end">
+                                <p className="text-[#e15241]">
+                                    {asset.value} 원
+                                </p>
+
+                                <p className="text-sm text-[#e15241]">
+                                    +{asset.profit} ({asset.profitRate}%)
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
         </main>
     );
 }
