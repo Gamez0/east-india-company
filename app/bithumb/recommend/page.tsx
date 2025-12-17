@@ -1,3 +1,5 @@
+import BarWaveAnimation from "./BarWaveAnimation";
+
 type MarketItem = {
     symbol: string;
     name: string;
@@ -32,14 +34,24 @@ const mockMarkets: MarketItem[] = [
 
 export default function Page() {
     return (
-        <main className="flex flex-col gap-8 px-6 py-8">
-            <header className="flex flex-col gap-1">
-                <h1 className="text-2xl font-semibold">Bithumb Market</h1>
-                <p className="text-sm text-muted-foreground">
-                    Live prices, daily change, and 24h volume (KRW pairs).
-                </p>
+        <main className="flex flex-col gap-8 px-6 py-8 h-[calc(100vh-114px)]">
+            <header className="sr-only">
+                <h1>추천</h1>
             </header>
+            {/* key feature 1. 상승신호 */}
 
+            <section className="flex bg-[#282b33] p-2 rounded-sm justify-between">
+                <div className="flex gap-2">
+                    <BarWaveAnimation />
+                    <strong className="text-white text-sm">
+                        상승신호 감지중
+                    </strong>
+                </div>
+
+                <button className="text-white opacity-60 text-sm">
+                    전체현황
+                </button>
+            </section>
             <section className="border rounded-2xl overflow-hidden">
                 <div className="grid grid-cols-5 px-4 py-2 text-sm font-medium text-muted-foreground bg-muted/40">
                     <span>Pair</span>

@@ -53,6 +53,9 @@ export default function Page() {
 
     return (
         <main className="flex flex-col h-[calc(100vh-114px)] px-6.5 gap-2">
+            <header className="sr-only">
+                <h1>자산 현황</h1>
+            </header>
             <section className="flex flex-col pt-10 pb-4 gap-8">
                 <div className="flex gap-2">
                     <div className="flex flex-col bg-[#f2f4f6] p-4 rounded-2xl w-full">
