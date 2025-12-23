@@ -30,7 +30,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`bithumb-font ${geistSans.variable} ${geistMono.variable} antialiased w-full flex justify-center mx-auto max-w-3xl`}
+                className={`bithumb-font ${geistSans.variable} ${geistMono.variable} antialiased w-full flex justify-center mx-auto max-w-3xl bg-gray-200`}
             >
                 {children}
             </body>
