@@ -10,12 +10,17 @@ import {
     SelectContent,
     SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+
+// meta info
+export const metadata = {
+    title: "빗썸 | 자산현황",
+    description: "빗썸 자산현황 페이지입니다.",
+};
 
 export default function Page() {
     const totalAssets = 20144;

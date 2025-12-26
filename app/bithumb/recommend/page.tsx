@@ -47,6 +47,11 @@ const tabList = [
     { label: "테마상위", value: "topThemes" },
 ];
 
+// meta info
+export const metadata = {
+    title: "빗썸 | 추천",
+    description: "빗썸 추천 페이지입니다.",
+};
 
 export default function Page() {
     return (
