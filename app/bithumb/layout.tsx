@@ -5,8 +5,17 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Bithumb",
-    description: "Bithumb Exchange Page",
+    title: "빗썸",
+    description: "대한민국 대표 가상자산 거래소 빗썸 공식 홈페이지",
+    icons: {
+        icon: [
+            {
+                url: "https://content.bithumb.com/resources/img/comm/seo/favicon-32x32.png",
+                type: "image/png",
+                sizes: "32x32",
+            },
+        ],
+    },
 };
 
 export const viewport: Viewport = {
