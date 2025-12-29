@@ -107,7 +107,7 @@ export default function BithumbHeader() {
                     </a>
                 </Button>
                 <nav
-                    className="flex flex-row font-bold text-lg gap-4"
+                    className="flex flex-row font-bold text-lg gap-4 hidden"
                     aria-label="Bithumb navigation"
                 >
                     <ul className="flex gap-4">

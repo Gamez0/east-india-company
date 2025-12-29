@@ -49,13 +49,13 @@ const tabList = [
 
 // meta info
 export const metadata = {
-    title: "빗썸 | 추천",
+    title: "추천 | 빗썸",
     description: "빗썸 추천 페이지입니다.",
 };
 
 export default function Page() {
     return (
-        <main className="flex flex-col gap-8 px-6 py-8 h-[calc(100vh-114px)]">
+        <main className="flex flex-col gap-8 px-6 py-8 h-[calc(100vh-114px)] overflow-y-auto no-scrollbar">
             <header className="sr-only">
                 <h1>추천</h1>
             </header>
@@ -114,7 +114,135 @@ export default function Page() {
                     </Tabs>
                 </div>
             </section>
-            <section>{/* 스테이킹 또는 랜딩(코인 대여 서비스) */}</section>
+            <section>
+                {/* 스테이킹 또는 랜딩(코인 대여 서비스) */}
+                {/* 매일 보상을 받는 스테이킹 */}
+                <header>
+                    <h2 className="text-lg font-semibold">
+                        매일 보상을 받는 <br /> 스테이킹
+                    </h2>
+                </header>
+                <div>
+                    {/* 1~5 상위 이자 제공하는 스테이킹 코인 소개 */}
+                    <table className="w-full text-left">
+                        <thead>
+                            <tr className="border-b border-gray-300 text-[#93989e] text-xs">
+                                <th className="py-2 w-[50%]">자산명</th>
+                                <th className="py-2 w-[30%] text-right">
+                                    연 이자
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        1
+                                    </span>
+                                    <span>이더리움</span>
+                                </td>
+                                <td className="py-2  text-right">5.2%</td>
+                            </tr>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        2
+                                    </span>
+                                    <span>오브스</span>
+                                </td>
+                                <td className="py-2  text-right">4.8%</td>
+                            </tr>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        3
+                                    </span>
+                                    <span>트론</span>
+                                </td>
+                                <td className="py-2  text-right">4.5%</td>
+                            </tr>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        4
+                                    </span>
+                                    <span>아이콘</span>
+                                </td>
+                                <td className="py-2  text-right">4.2%</td>
+                            </tr>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        5
+                                    </span>
+                                    <span>코스모스</span>
+                                </td>
+                                <td className="py-2  text-right">2.05%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                {/* 빗썸 랜딩 (코인 대여 서비스) */}
+                <header className="flex flex-row justify-between">
+                    <h2 className="text-lg font-semibold">
+                        빗썸 랜딩 <br /> (코인 대여 서비스)
+                    </h2>
+                    {/* 2025 12 25 기준이라고 표시하기 */}
+                    <p className="text-xs text-gray-500 self-end">
+                        2024.12.25 기준
+                    </p>
+                </header>
+                <div>
+                    {/* 1~5 상위 대여 자산 */}
+                    <table className="w-full text-left">
+                        <thead>
+                            <tr className="border-b border-gray-300 text-[#93989e] text-xs">
+                                <th className="py-2 w-[50%]">자산명</th>
+                                <th className="py-2 w-[30%] text-right">
+                                    총 대여 금액
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        1
+                                    </span>
+                                    <span>테더</span>
+                                </td>
+                                <td className="py-2  text-right">
+                                    45,875,352,748원
+                                </td>
+                            </tr>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        2
+                                    </span>
+                                    <span>비트코인</span>
+                                </td>
+                                <td className="py-2  text-right">
+                                    5,217,143,283원
+                                </td>
+                            </tr>
+                            <tr className="border-b border-gray-200 text-[15px]">
+                                <td className="py-2 flex gap-2">
+                                    <span className="text-[#3d414b] text-[13px] self-center italic">
+                                        3
+                                    </span>
+                                    <span>엑스알피</span>
+                                </td>
+                                <td className="py-2  text-right">
+                                    1,976,977,723원
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </main>
     );
 }

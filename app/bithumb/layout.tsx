@@ -41,7 +41,7 @@ export default function BithumbLayout({
 
 function BottomNavigation() {
     const menuItems = [
-        { icon: "assets.svg", label: "자산현황", route: "/bithumb/assets" },
+        { icon: "assets.svg", label: "자산현황", route: "/bithumb" },
         { icon: "market.svg", label: "추천", route: "/bithumb/recommend" }, // TODO: 어울리는 아이콘으로 변경
         { icon: "deposit.svg", label: "동향", route: "/bithumb/trend" }, // TODO: 어울리는 아이콘으로 변경
         { icon: "etc.svg", label: "더보기", route: "/bithumb/more" },
