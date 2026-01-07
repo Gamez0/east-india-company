@@ -1,13 +1,11 @@
-import MainHeader from "@/components/header/MainHeader";
+import SettingHeader from "@/components/header/SettingHeader";
 
 export default function Layout({
     children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
     return (
         <div className="max-w-3xl w-full bg-white">
-            <MainHeader />
+            <SettingHeader />
             {children}
         </div>
     );
