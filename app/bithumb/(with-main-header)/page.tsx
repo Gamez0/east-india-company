@@ -15,6 +15,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import PortfolioPieChart from "@/components/assets/PortfolioPieChart";
+import Link from "next/link";
 
 // meta info
 export const metadata = {
@@ -37,6 +38,7 @@ export default function Page() {
             value: 5178,
             profit: 179,
             profitRate: 3.58,
+            coinId: "btc",
         },
         {
             imgSrc: "/bithumb/coin/coin-eth.png",
@@ -45,6 +47,7 @@ export default function Page() {
             value: 8123,
             profit: 245,
             profitRate: 3.11,
+            coinId: "eth",
         },
         {
             imgSrc: "/bithumb/coin/coin-sol.png",
@@ -53,6 +56,7 @@ export default function Page() {
             value: 6843,
             profit: 132,
             profitRate: 2.58,
+            coinId: "sol",
         },
     ];
 
@@ -146,9 +150,10 @@ export default function Page() {
                 </div>
                 <div className="flex flex-col gap-4.5">
                     {assets.map((asset, index) => (
-                        <div
+                        <Link
                             key={index}
                             className="flex flex-row justify-between"
+                            href={`/bithumb/coins/${asset.coinId}`}
                         >
                             <div className="flex flex-row gap-2 items-center">
                                 <img src={asset.imgSrc} className="size-8" />
@@ -168,7 +173,7 @@ export default function Page() {
                                     +{asset.profit} ({asset.profitRate}%)
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>

@@ -31,7 +31,6 @@ export default function BithumbLayout({
     return (
         <div className="flex flex-col items-center bg-zinc-50 w-full">
             <div className="max-w-3xl w-full bg-white">
-                <BithumbHeader />
                 {children}
                 <BottomNavigation />
             </div>
@@ -44,7 +43,7 @@ function BottomNavigation() {
         { icon: "assets.svg", label: "자산현황", route: "/bithumb" },
         { icon: "market.svg", label: "추천", route: "/bithumb/recommend" }, // TODO: 어울리는 아이콘으로 변경
         { icon: "deposit.svg", label: "입출금", route: "/bithumb/inout" },
-        { icon: "etc.svg", label: "더보기", route: "/bithumb/more" },
+        { icon: "etc.svg", label: "더보기", route: "/bithumb/menu" },
     ];
 
     return (
