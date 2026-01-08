@@ -20,7 +20,7 @@ export function MarketIcon(props: React.SVGProps<SVGSVGElement>) {
                     <rect width="56" height="56" x="0" y="0"></rect>
                 </clipPath>
             </defs>
-            <g clip-path="url(#__lottie_element_37)">
+            <g clipPath="url(#__lottie_element_37)">
                 <g
                     transform="matrix(1,0,0,1,0,-0.5)"
                     opacity="1"
