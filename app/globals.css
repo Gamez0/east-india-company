@@ -1,39 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@font-face {
-    font-family: "BithumbFont";
-    src: url("/bithumb/fonts/BithumbTradingSans-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "BithumbFont";
-    src: url("/bithumb/fonts/BithumbTradingSans-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "BithumbFont";
-    src: url("/bithumb/fonts/BithumbTradingSans-SemiBold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "BithumbFont";
-    src: url("/bithumb/fonts/BithumbTradingSans-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-.bithumb-font {
-    font-family: "BithumbFont", sans-serif;
-}
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

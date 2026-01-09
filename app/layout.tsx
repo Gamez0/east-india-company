@@ -1,15 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
+const bithumbFont = localFont({
+    src: [
+        {
+            path: "../public/bithumb/fonts/BithumbTradingSans-Regular.woff2",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "../public/bithumb/fonts/BithumbTradingSans-Medium.woff2",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "../public/bithumb/fonts/BithumbTradingSans-SemiBold.woff2",
+            weight: "600",
+            style: "normal",
+        },
+        {
+            path: "../public/bithumb/fonts/BithumbTradingSans-Bold.woff2",
+            weight: "700",
+            style: "normal",
+        },
+    ],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +45,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`bithumb-font ${geistSans.variable} ${geistMono.variable} antialiased w-full flex justify-center mx-auto max-w-3xl bg-gray-200`}
+                className={`${bithumbFont.className} antialiased w-full flex justify-center mx-auto max-w-3xl bg-gray-200`}
             >
                 {children}
             </body>
