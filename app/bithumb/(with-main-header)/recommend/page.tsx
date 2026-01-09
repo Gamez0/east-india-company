@@ -1,11 +1,11 @@
 import { TabsContent } from "@radix-ui/react-tabs";
-import BarWaveAnimation from "./BarWaveAnimation";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TopBuysTable from "./TopBuysTable";
 import GrowthRateTable from "./GrowthRateTable";
 import DeclineRateTable from "./DeclineRateTable";
 import TradingVolumeTable from "./TradingVolumeTable";
 import TopThemesTable from "./TopThemesTable";
+import BarWaveAnimation from "@/components/animations/BarWaveAnimation";
 
 type MarketItem = {
     symbol: string;
