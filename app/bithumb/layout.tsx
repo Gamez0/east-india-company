@@ -27,7 +27,7 @@ export default function BithumbLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex flex-col items-center bg-zinc-50 w-full">
+        <div className="flex flex-col items-center bg-zinc-50 w-full overflow-hidden">
             <div className="max-w-3xl w-full bg-white">
                 {children}
                 <MainNavigation />
