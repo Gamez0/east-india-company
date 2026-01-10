@@ -153,7 +153,7 @@ export default function Page() {
                         <Link
                             key={index}
                             className="flex flex-row justify-between"
-                            href={`/bithumb/coins/${asset.coinId}`}
+                            href={`/bithumb/coins/${asset.coinId}/order`}
                         >
                             <div className="flex flex-row gap-2 items-center">
                                 <img src={asset.imgSrc} className="size-8" />

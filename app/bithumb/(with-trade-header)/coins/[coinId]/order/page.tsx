@@ -1,3 +1,6 @@
+import OrderBook from "./OrderBook";
+import OrderPanel from "./OrderPanel";
+
 export default async function Page({
     params,
 }: {
@@ -5,8 +8,9 @@ export default async function Page({
 }) {
     const { coinId } = await params;
     return (
-        <main className="h-[calc(100vh-186px)]">
-            <div className="p-4">Coin {coinId} Order Page</div>
+        <main className="flex h-[calc(100vh-232px)]">
+            <OrderBook />
+            <OrderPanel />
         </main>
     );
 }

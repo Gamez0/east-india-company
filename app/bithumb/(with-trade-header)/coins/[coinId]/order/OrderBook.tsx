@@ -17,12 +17,12 @@ export default function OrderBook() {
     const INITIAL_ORDERBOOK = createInitialOrderbook();
 
     const orderBook = useBinaryOrderbook(INITIAL_ORDERBOOK);
-    // bids 5~9
-    const bids = orderBook.slice(5, 10);
-    const offers = orderBook.slice(0, 5);
+    // bids 10~19
+    const bids = orderBook.slice(10, 20);
+    const offers = orderBook.slice(0, 10);
     return (
         isClient && (
-            <ul>
+            <ul className="min-w-36 overflow-y-auto">
                 {offers.map((level, idx) => (
                     <li key={idx} className="bg-[#e3ebf7] h-10">
                         <span className="text-[#e15241]">

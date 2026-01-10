@@ -110,7 +110,7 @@ export function decodeOrderbookDelta(buf: ArrayBuffer): Level[] {
 
 export function createInitialOrderbook(
     midPrice = 129580000,
-    levels = 10,
+    levels = 20,
     step = 5000,
 ): { p: number; q: number }[] {
     return Array.from({ length: levels }, (_, i) => ({
