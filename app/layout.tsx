@@ -15,7 +15,7 @@ const bithumbFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/bithumb/fonts/BithumbTradingSans-SemiBold.woff2",
+            path: "../public/bithumb/fonts/BithumbTradingSans-Semibold.woff2",
             weight: "600",
             style: "normal",
         },
