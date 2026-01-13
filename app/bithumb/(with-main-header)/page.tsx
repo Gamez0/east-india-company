@@ -51,7 +51,7 @@ export default function Page() {
         },
         {
             imgSrc: "/bithumb/coin/coin-sol.png",
-            name: "솔라리움 (SOL)",
+            name: "솔라나 (SOL)",
             amount: "10.5678 SOL",
             value: 6843,
             profit: 132,
