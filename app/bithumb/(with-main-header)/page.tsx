@@ -61,7 +61,7 @@ export default function Page() {
     ];
 
     return (
-        <main className="flex flex-col h-[calc(100vh-114px)] px-6.5 gap-2">
+        <main className="flex flex-col h-[calc(100vh-114px)] px-6.5 gap-2 overflow-y-auto no-scrollbar pb-15">
             <header className="sr-only">
                 <h1>자산 현황</h1>
             </header>
