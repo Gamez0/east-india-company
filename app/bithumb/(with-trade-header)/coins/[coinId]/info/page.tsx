@@ -5,7 +5,7 @@ export default async function Page({
 }) {
     const { coinId } = await params;
     return (
-        <main className="h-[calc(100vh-186px)]">
+        <main className="flex h-[calc(100vh-218.88px)]">
             <div className="p-4">Coin {coinId} Info Page</div>
         </main>
     );
