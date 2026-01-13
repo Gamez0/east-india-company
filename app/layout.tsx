@@ -45,7 +45,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`${bithumbFont.className} antialiased w-full flex justify-center mx-auto max-w-3xl bg-gray-200`}
+                className={`${bithumbFont.className} antialiased w-full flex justify-center mx-auto max-w-[430px] bg-gray-200`}
             >
                 {children}
             </body>
