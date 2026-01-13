@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useBinaryOrderbook(initial: Level[]) {
+export function useBinaryOrderbook(initial: Level[], yesterDayPrice: number) {
     const bufRef = useRef<Level[]>(initial);
     const [levels, setLevels] = useState<Level[]>(initial);
 
     useEffect(() => {
-        const sock = createMockBinaryOrderbookStream(initial, (ev) => {
-            bufRef.current = decodeOrderbookDelta(ev.data);
-        });
+        const sock = createMockBinaryOrderbookStream(
+            initial,
+            yesterDayPrice,
+            (ev) => {
+                bufRef.current = decodeOrderbookDelta(ev.data);
+            },
+        );
 
         // 100ms에 한 번만 React state 반영 (리렌더 폭발 방지)
         const ui = setInterval(() => setLevels(bufRef.current), 100);
@@ -23,6 +27,7 @@ export function useBinaryOrderbook(initial: Level[]) {
 
 const MIN_Q = 0.0005;
 const MAX_Q = 0.05;
+const PERCENT_STEP = 0.05;
 
 function randomQ() {
     return Number((Math.random() * (MAX_Q - MIN_Q) + MIN_Q).toFixed(4));
@@ -30,6 +35,7 @@ function randomQ() {
 
 export function createMockBinaryOrderbookStream(
     initial: Level[],
+    yesterDayPrice: number,
     onmessage: (ev: { data: ArrayBuffer }) => void,
     intervalMs = 80,
 ) {
@@ -65,29 +71,41 @@ export function createMockBinaryOrderbookStream(
     return { close: () => clearInterval(id) };
 }
 
-export type Level = { p: number; q: number };
+export type Level = { p: number; q: number; percent?: number };
 
 export function encodeOrderbookDelta(levels: Level[]): ArrayBuffer {
     const n = Math.min(255, levels.length);
-    const payloadLen = 1 + 1 + n * 8; // type + count + (p,q)
+    const payloadLen = 1 + 1 + n * 10; // type + count + (p,q,percent)
     const buf = new ArrayBuffer(4 + payloadLen);
     const dv = new DataView(buf);
 
-    // length prefix (payload length)
-    dv.setUint32(0, payloadLen, false); // BE
-    dv.setUint8(4, 1); // type=1
+    dv.setUint32(0, payloadLen, false);
+    dv.setUint8(4, 1); // type
     dv.setUint8(5, n); // count
 
     let off = 6;
+    const yesterDayPrice = levels[Math.floor(levels.length / 2)].p * 0.98;
     for (let i = 0; i < n; i++) {
-        dv.setUint32(off, levels[i].p, true); // LE
-        dv.setFloat32(off + 4, levels[i].q, true); // LE
-        off += 8;
+        const { p, q } = levels[i];
+        const percent = calcPercent(p, yesterDayPrice);
+        const percentInt = Math.round(percent / PERCENT_STEP);
+
+        dv.setUint32(off, p, true); // price
+        dv.setFloat32(off + 4, q, true); // quantity
+        dv.setInt16(off + 8, percentInt, true); // percent
+        off += 10;
     }
+
     return buf;
 }
 
-export function decodeOrderbookDelta(buf: ArrayBuffer): Level[] {
+export type DecodedLevel = {
+    p: number;
+    q: number;
+    percent: number;
+};
+
+export function decodeOrderbookDelta(buf: ArrayBuffer): DecodedLevel[] {
     const dv = new DataView(buf);
     const payloadLen = dv.getUint32(0, false);
     if (4 + payloadLen !== buf.byteLength) return [];
@@ -96,25 +114,40 @@ export function decodeOrderbookDelta(buf: ArrayBuffer): Level[] {
     if (type !== 1) return [];
 
     const n = dv.getUint8(5);
-    const out: Level[] = [];
+    const out: DecodedLevel[] = [];
 
     let off = 6;
     for (let i = 0; i < n; i++) {
         const p = dv.getUint32(off, true);
         const q = dv.getFloat32(off + 4, true);
-        out.push({ p, q });
-        off += 8;
+        const percentInt = dv.getInt16(off + 8, true);
+
+        out.push({
+            p,
+            q,
+            percent: percentInt * PERCENT_STEP,
+        });
+
+        off += 10;
     }
     return out;
 }
 
-export function createInitialOrderbook(
-    midPrice = 129580000,
-    levels = 20,
-    step = 5000,
-): { p: number; q: number }[] {
-    return Array.from({ length: levels }, (_, i) => ({
-        p: midPrice + (levels / 2 - i) * step,
+export function createInitialOrderbook({
+    midPrice,
+    step,
+}: {
+    midPrice: number;
+    step: number;
+}): Level[] {
+    return Array.from({ length: 20 }, (_, i) => ({
+        p: midPrice + (20 / 2 - i) * step,
         q: Number((Math.random() * 0.03 + 0.001).toFixed(4)),
     })).sort((a, b) => b.p - a.p);
+}
+
+function calcPercent(price: number, basePrice: number) {
+    const raw = ((price - basePrice) / basePrice) * 100;
+    // 0.05% 단위로 스냅
+    return Math.round(raw / PERCENT_STEP) * PERCENT_STEP;
 }

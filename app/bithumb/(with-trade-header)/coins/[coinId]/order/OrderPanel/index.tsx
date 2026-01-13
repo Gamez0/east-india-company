@@ -19,12 +19,8 @@ export default function OrderPanel() {
                 <TabsContent value="buy" className="pt-4 px-3">
                     <BuyPanel />
                 </TabsContent>
-                <TabsContent value="sell">
-                    Change your password here.
-                </TabsContent>
-                <TabsContent value="history">
-                    Set your account email address here.
-                </TabsContent>
+                <TabsContent value="sell">Sell Panel</TabsContent>
+                <TabsContent value="history">History Panel</TabsContent>
             </Tabs>
         </div>
     );

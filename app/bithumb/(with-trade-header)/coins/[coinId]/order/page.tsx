@@ -8,8 +8,10 @@ export default async function Page({
 }) {
     const { coinId } = await params;
     return (
-        <main className="flex h-[calc(100vh-232px)]">
-            <OrderBook />
+        <main className="flex h-[calc(100vh-218.88px)]">
+            <div className="w-36 overflow-y-auto no-scrollbar">
+                <OrderBook coinId={coinId} />
+            </div>
             <OrderPanel />
         </main>
     );
