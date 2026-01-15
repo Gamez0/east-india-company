@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 
-export default function InoutHeader() {
+export default function PayHeader() {
     return (
         <header className="flex items-center justify-between m-2 h-10">
             <div className="flex gap-4">

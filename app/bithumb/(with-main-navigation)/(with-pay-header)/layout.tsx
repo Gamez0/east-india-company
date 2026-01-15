@@ -1,11 +1,11 @@
-import InoutHeader from "@/components/header/InoutHeader";
+import PayHeader from "@/components/header/PayHeader";
 
 export default function Layout({
     children,
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <div className="max-w-3xl w-full bg-white">
-            <InoutHeader />
+            <PayHeader />
             {children}
         </div>
     );
