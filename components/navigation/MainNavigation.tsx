@@ -78,7 +78,7 @@ export default function MainNavigation() {
                     </Link>
                 </li>
                 <li className="flex-1">
-                    <Link href={"/bithumb/inout"}>
+                    <Link href={"/bithumb/pay"}>
                         <Button
                             variant="ghost"
                             className="w-full flex flex-col h-10 gap-0 mt-1.75 text-[#acb0b4]"
