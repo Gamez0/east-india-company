@@ -12,7 +12,7 @@ import clsx from "clsx";
 const menuItems = [
     { icon: "assets.svg", label: "자산현황", route: "/bithumb" },
     { icon: "market.svg", label: "추천", route: "/bithumb/recommend" },
-    { icon: "deposit.svg", label: "입출금", route: "/bithumb/inout" },
+    { icon: "deposit.svg", label: "페이", route: "/bithumb/pay" },
     { icon: "etc.svg", label: "더보기", route: "/bithumb/menu" },
 ];
 
@@ -21,7 +21,7 @@ export default function MainNavigation() {
 
     const isAssetsPage = pathName === "/bithumb";
     const isMarketPage = pathName === "/bithumb/recommend";
-    const isInoutPage = pathName === "/bithumb/inout";
+    const isPayPage = pathName === "/bithumb/pay";
     const isMenuPage = pathName === "/bithumb/menu";
 
     return (
@@ -86,13 +86,13 @@ export default function MainNavigation() {
                             <DepositIcon
                                 className={clsx(
                                     "size-7",
-                                    isInoutPage ? "text-[#1c2028]" : "",
+                                    isPayPage ? "text-[#1c2028]" : "",
                                 )}
                             />
                             <span
                                 className={clsx(
                                     "text-[10px] leading-3",
-                                    isInoutPage ? "text-[#1c2028]" : "",
+                                    isPayPage ? "text-[#1c2028]" : "",
                                 )}
                             >
                                 {menuItems[2].label}
