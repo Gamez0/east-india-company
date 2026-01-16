@@ -6,11 +6,12 @@ import {
     Cake,
     Component,
     Handshake,
-    Link,
+    Link as LinkIcon,
     Replace,
 } from "lucide-react";
 import { Metadata } from "next";
 import CopyButton from "./CopyButton";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     robots: {
@@ -84,7 +85,10 @@ export default function Page() {
             </div>
             {/* 송금하기 */}
             <div className="flex gap-2">
-                <div className="flex bg-[#f2f4f6] p-4 rounded-2xl w-full items-center justify-between relative">
+                <Link
+                    href="/bithumb/pay/remit"
+                    className="flex bg-[#f2f4f6] p-4 rounded-2xl w-full items-center justify-between relative"
+                >
                     <span className="text-sm">
                         빗썸 유저에게 <br />
                         보내기
@@ -93,11 +97,14 @@ export default function Page() {
                     <p className="text-xs text-primary absolute top-1.5 right-2">
                         보너스
                     </p>
-                </div>
-                <div className="flex bg-[#f2f4f6] p-4 rounded-2xl w-full items-center justify-between">
+                </Link>
+                <Link
+                    href="/bithumb/pay/remit"
+                    className="flex bg-[#f2f4f6] p-4 rounded-2xl w-full items-center justify-between"
+                >
                     <span className="text-sm">온체인 전송</span>
-                    <Link size={16} />
-                </div>
+                    <LinkIcon size={16} />
+                </Link>
             </div>
             <ul className="grid grid-cols-4 gap-4">
                 {PAY_SERVICE_ITEMS.map((item) => (
