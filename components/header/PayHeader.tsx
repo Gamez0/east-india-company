@@ -1,16 +1,16 @@
-import { Button } from "../ui/button";
+import BackButton from "../navigation/BackButton";
+import { Scan } from "lucide-react";
+import Link from "next/link";
 
 export default function PayHeader() {
     return (
-        <header className="flex items-center justify-between m-2 h-10">
-            <div className="flex gap-4">
-                {/* <Button variant="ghost">입출금</Button>
-                <Button variant="ghost">내역</Button> */}
-            </div>
-            <Button variant="ghost" size="icon-lg">
+        <header className="flex items-center justify-between m-2 h-10 mr-4">
+            {/* Back button */}
+            <BackButton />
+            <Link href="/bithumb/pay/scan">
                 {/* TODO: qr 아이콘으로 바꾸기 */}
-                <img src="/bithumb/search.svg" alt="검색" />
-            </Button>
+                <Scan className="text-[#1c2028] size-6" />
+            </Link>
         </header>
     );
 }
