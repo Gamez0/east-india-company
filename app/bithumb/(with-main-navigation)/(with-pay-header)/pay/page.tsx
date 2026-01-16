@@ -80,7 +80,7 @@ export default function Page() {
                 <h1 className="text-2xl font-bold">Pay</h1>
                 <div className="flex items-center gap-1">
                     <p className="text-xs">Bithumb ID: {BITHUMB_ID}</p>
-                    <CopyButton BITHUMB_ID={BITHUMB_ID} />
+                    <CopyButton BITHUMB_ID={BITHUMB_ID.replaceAll(" ", "")} />
                 </div>
             </div>
             {/* 송금하기 */}
