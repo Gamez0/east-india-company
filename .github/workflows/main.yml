@@ -1,0 +1,51 @@
+name: node_modules-cache-fail-demo
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # pnpm 설치 (버전 고정 권장)
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # ✅ 의도적으로 "node_modules"만 캐시 (pnpm store 캐시 X)
+      - name: Cache node_modules only (intentionally wrong for pnpm)
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            node-modules-${{ runner.os }}-
+
+      # 캐시가 실제로 복원됐는지 로그로 확인
+      - name: Inspect node_modules before install
+        run: |
+          echo "== node_modules exists? =="
+          if [ -d node_modules ]; then echo "YES"; else echo "NO"; fi
+          echo "== size =="
+          du -sh node_modules 2>/dev/null || true
+
+      # pnpm install + build
+      - name: Install
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      # 설치 후에도 store 위치를 확인해보면(대부분 홈 디렉토리) 캐시 안된 걸 볼 수 있음
+      - name: Show pnpm store path (not cached)
+        run: pnpm store path
