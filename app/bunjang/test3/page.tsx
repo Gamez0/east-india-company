@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-query";
 import PostsContainer from "./containers/PostsContainer";
 import { ErrorBoundary } from "react-error-boundary";
+import { Suspense } from "react";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +31,9 @@ export default function Page() {
                         )}
                         onReset={reset}
                     >
-                        <PostsContainer />
+                        <Suspense fallback={<div>Loading ...</div>}>
+                            <PostsContainer />
+                        </Suspense>
                     </ErrorBoundary>
                 )}
             </QueryErrorResetBoundary>
