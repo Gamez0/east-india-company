@@ -27,7 +27,7 @@
 
 - [x] `Symbol()`, `Symbol.for()`, `Symbol.iterator`, `Symbol.asyncIterator`
 - [x] `Symbol.toPrimitive`, `Symbol.hasInstance`, `Symbol.species`
-- [ ] `BigInt()`, BigInt 연산자, `BigInt.asIntN()`, `BigInt.asUintN()`
+- [x] `BigInt()`, BigInt 연산자, `BigInt.asIntN()`, `BigInt.asUintN()`
 - [ ] `Number.isFinite()`, `Number.isNaN()`, `Number.isInteger()`, `Number.isSafeInteger()`
 - [ ] `Number.parseFloat()`, `Number.parseInt()`, `Number.EPSILON`, `Number.MAX_SAFE_INTEGER`
 
