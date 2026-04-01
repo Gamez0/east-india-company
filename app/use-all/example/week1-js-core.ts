@@ -15,49 +15,58 @@ console.log(Symbol.keyFor(globalSym)); // "shared"
 
 // Symbol.iterator — 커스텀 이터러블
 class Range {
-  constructor(public start: number, public end: number) {}
+    constructor(
+        public start: number,
+        public end: number,
+    ) {}
 
-  [Symbol.iterator]() {
-    let current = this.start;
-    const end = this.end;
-    return {
-      next() {
-        return current <= end
-          ? { value: current++, done: false }
-          : { done: true, value: undefined };
-      },
-    };
-  }
+    [Symbol.iterator]() {
+        let current = this.start;
+        const end = this.end;
+        return {
+            next() {
+                return current <= end
+                    ? { value: current++, done: false }
+                    : { done: true, value: undefined };
+            },
+        };
+    }
 }
 console.log([...new Range(1, 5)]); // [1, 2, 3, 4, 5]
 
 // Symbol.asyncIterator — 비동기 이터러블
 class AsyncRange {
-  constructor(public start: number, public end: number) {}
+    constructor(
+        public start: number,
+        public end: number,
+    ) {}
 
-  async *[Symbol.asyncIterator]() {
-    for (let i = this.start; i <= this.end; i++) {
-      await new Promise((r) => setTimeout(r, 100));
-      yield i;
+    async *[Symbol.asyncIterator]() {
+        for (let i = this.start; i <= this.end; i++) {
+            await new Promise((r) => setTimeout(r, 100));
+            yield i;
+        }
     }
-  }
 }
 // for await (const n of new AsyncRange(1, 3)) console.log(n);
 
 // Symbol.toPrimitive — 타입 변환 커스터마이징
 class Money {
-  constructor(public amount: number, public currency: string) {}
+    constructor(
+        public amount: number,
+        public currency: string,
+    ) {}
 
-  [Symbol.toPrimitive](hint: string) {
-    switch (hint) {
-      case "number":
-        return this.amount;
-      case "string":
-        return `${this.amount} ${this.currency}`;
-      default:
-        return this.amount;
+    [Symbol.toPrimitive](hint: string) {
+        switch (hint) {
+            case "number":
+                return this.amount;
+            case "string":
+                return `${this.amount} ${this.currency}`;
+            default:
+                return this.amount;
+        }
     }
-  }
 }
 const price = new Money(100, "USD");
 console.log(+price); // 100
@@ -65,18 +74,18 @@ console.log(`${price}`); // "100 USD"
 
 // Symbol.hasInstance — instanceof 커스터마이징
 class EvenNumber {
-  static [Symbol.hasInstance](num: unknown) {
-    return typeof num === "number" && num % 2 === 0;
-  }
+    static [Symbol.hasInstance](num: unknown) {
+        return typeof num === "number" && num % 2 === 0;
+    }
 }
 console.log(4 instanceof EvenNumber); // true
 console.log(5 instanceof EvenNumber); // false
 
 // Symbol.species — 파생 객체 타입 제어
 class SpecialArray<T> extends Array<T> {
-  static get [Symbol.species]() {
-    return Array; // map/filter 등이 일반 Array를 반환하도록
-  }
+    static get [Symbol.species]() {
+        return Array; // map/filter 등이 일반 Array를 반환하도록
+    }
 }
 const sarr = new SpecialArray(1, 2, 3);
 const mapped = sarr.map((x) => x * 2);
@@ -116,8 +125,10 @@ console.log("café".normalize("NFC").length); // 4
 console.log("aabbcc".replaceAll("a", "x")); // "xxbbcc"
 
 // matchAll — 모든 매치 + 캡처 그룹
-const matches = [...'2024-01-15, 2024-02-20'.matchAll(/(\d{4})-(\d{2})-(\d{2})/g)];
-matches.forEach(m => console.log(m[0], m[1], m[2], m[3]));
+const matches = [
+    ..."2024-01-15, 2024-02-20".matchAll(/(\d{4})-(\d{2})-(\d{2})/g),
+];
+matches.forEach((m) => console.log(m[0], m[1], m[2], m[3]));
 
 console.log("5".padStart(3, "0")); // "005"
 console.log("hi".padEnd(10, ".")); // "hi........"
@@ -154,9 +165,18 @@ console.log("$100 €200".match(/(?<!\$)\d+/)); // ["00"] ($ 뒤가 아닌 숫�
 // ─── Day 3: Object 심화 ────────────────────────────────────────────────────
 
 // Object.create — 프로토타입 지정 생성
-const proto = { greet() { return `Hello, ${this.name}`; } };
+const proto = {
+    greet() {
+        return `Hello, ${this.name}`;
+    },
+};
 const obj = Object.create(proto, {
-  name: { value: "World", writable: true, enumerable: true, configurable: true }
+    name: {
+        value: "World",
+        writable: true,
+        enumerable: true,
+        configurable: true,
+    },
 });
 console.log(obj.greet()); // "Hello, World"
 
@@ -171,17 +191,17 @@ console.log(Object.is(+0, -0)); // false (=== 는 true)
 // Object.entries → 변환 → Object.fromEntries
 const original = { a: 1, b: 2, c: 3 };
 const doubled = Object.fromEntries(
-  Object.entries(original).map(([k, v]) => [k, v * 2])
+    Object.entries(original).map(([k, v]) => [k, v * 2]),
 );
 console.log(doubled); // { a: 2, b: 4, c: 6 }
 
 // Property Descriptors
 const target = {};
 Object.defineProperty(target, "secret", {
-  value: 42,
-  writable: false,
-  enumerable: false,
-  configurable: false,
+    value: 42,
+    writable: false,
+    enumerable: false,
+    configurable: false,
 });
 console.log(target.secret); // 42
 console.log(Object.keys(target)); // [] (enumerable: false)
@@ -189,8 +209,13 @@ console.log(Object.getOwnPropertyDescriptor(target, "secret"));
 
 // Object.defineProperties — 여러 속성 한번에
 Object.defineProperties(target, {
-  x: { value: 10, enumerable: true },
-  y: { get() { return this.x * 2; }, enumerable: true },
+    x: { value: 10, enumerable: true },
+    y: {
+        get() {
+            return this.x * 2;
+        },
+        enumerable: true,
+    },
 });
 console.log(target.x, target.y); // 10, 20
 
@@ -219,9 +244,9 @@ console.log(Object.hasOwn({ a: 1 }, "toString")); // false
 
 // Object.groupBy (ES2024)
 const items = [
-  { type: "fruit", name: "apple" },
-  { type: "veggie", name: "carrot" },
-  { type: "fruit", name: "banana" },
+    { type: "fruit", name: "apple" },
+    { type: "veggie", name: "carrot" },
+    { type: "fruit", name: "banana" },
 ];
 const grouped = Object.groupBy(items, (item) => item.type);
 console.log(grouped);
@@ -267,7 +292,12 @@ console.log(nums.includes(4)); // true
 console.log(nums.indexOf(1)); // 1
 console.log(nums.lastIndexOf(1)); // 3
 console.log(nums.flat()); // 이미 flat이면 동일
-console.log([[1, 2], [3, [4]]].flat(Infinity)); // [1,2,3,4]
+console.log(
+    [
+        [1, 2],
+        [3, [4]],
+    ].flat(Infinity),
+); // [1,2,3,4]
 console.log(nums.flatMap((n) => [n, n * 10])); // [3,30,1,10,4,40,...]
 console.log(nums.slice(1, 3)); // [1,4]
 console.log(nums.concat([10, 11])); // [...nums, 10, 11]
@@ -344,17 +374,19 @@ console.log(metadata.get(element)); // { clicks: 0, ... }
 // Private data 패턴
 const privateData = new WeakMap();
 class Person {
-  constructor(name: string, ssn: string) {
-    privateData.set(this, { ssn });
-    this.name = name;
-  }
-  name: string;
-  getSSN() { return privateData.get(this)?.ssn; }
+    constructor(name: string, ssn: string) {
+        privateData.set(this, { ssn });
+        this.name = name;
+    }
+    name: string;
+    getSSN() {
+        return privateData.get(this)?.ssn;
+    }
 }
 
 // --- WeakRef & FinalizationRegistry ---
 const registry = new FinalizationRegistry((heldValue: string) => {
-  console.log(`${heldValue} was garbage collected`);
+    console.log(`${heldValue} was garbage collected`);
 });
 
 let largeObj: object | null = { data: new Array(1_000_000) };
@@ -367,17 +399,19 @@ console.log(weakRef.deref()); // 아직 살아있음
 
 // --- WeakRef 실전: 캐시 ---
 class WeakCache<K extends object, V> {
-  private cache = new Map<K, WeakRef<V & object>>();
-  private registry = new FinalizationRegistry<K>((key) => {
-    this.cache.delete(key);
-  });
+    private cache = new Map<K, WeakRef<V & object>>();
+    private registry = new FinalizationRegistry<K>((key) => {
+        this.cache.delete(key);
+    });
 
-  set(key: K, value: V & object) {
-    this.cache.set(key, new WeakRef(value));
-    this.registry.register(value, key);
-  }
+    set(key: K, value: V & object) {
+        this.cache.set(key, new WeakRef(value));
+        this.registry.register(value, key);
+    }
 
-  get(key: K): V | undefined {
-    return this.cache.get(key)?.deref();
-  }
+    get(key: K): V | undefined {
+        return this.cache.get(key)?.deref();
+    }
 }
+
+export {};
