@@ -176,7 +176,7 @@
 
 ### Day 1 — 기본 & 내장 Utility Types
 
-- [ ] `Partial<T>`, `Required<T>`, `Readonly<T>`
+- [x] `Partial<T>`, `Required<T>`, `Readonly<T>`
 - [ ] `Pick<T,K>`, `Omit<T,K>`, `Record<K,T>`
 - [ ] `Exclude<T,U>`, `Extract<T,U>`, `NonNullable<T>`
 - [ ] `ReturnType<T>`, `Parameters<T>`, `ConstructorParameters<T>`, `InstanceType<T>`
