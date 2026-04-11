@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
-import { AssetsIcon } from "@/icons/bithumb/AssetsIcon";
-import { MarketIcon } from "@/icons/bithumb/MarketIcon";
-import { DepositIcon } from "@/icons/bithumb/DepositIcon";
-import { EtcIcon } from "@/icons/bithumb/EtcIcon";
 import clsx from "clsx";
+import { AssetsIcon } from "@/components/icons/AssetsIcon";
+import { MarketIcon } from "@/components/icons/MarketIcon";
+import { DepositIcon } from "@/components/icons/DepositIcon";
+import { EtcIcon } from "@/components/icons/EtcIcon";
 
 const menuItems = [
     { icon: "assets.svg", label: "자산현황", route: "/bithumb" },
