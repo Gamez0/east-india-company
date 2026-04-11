@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Star, Triangle } from "lucide-react";
-import BackButton from "@/components/navigation/BackButton";
-import BarWaveAnimation from "@/components/animations/BarWaveAnimation";
 import TradeTab from "./TradeTab";
 import { usePathname } from "next/navigation";
 import { MOCK_PRICE } from "@/mocks/price";
 import clsx from "clsx";
+import BarWaveAnimation from "@/components/animations/BarWaveAnimation";
+import BackButton from "@/components/navigation/BackButton";
+import { Button } from "@/components/ui/button";
 
 export default function TradeHeader() {
     const pathName = usePathname();

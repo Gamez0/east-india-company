@@ -3,7 +3,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@repo/ui/accordion";
 import {
     Select,
     SelectContent,
@@ -11,11 +11,11 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import PortfolioPieChart from "@/components/assets/PortfolioPieChart";
+} from "@repo/ui/select";
+import { Checkbox } from "@repo/ui/checkbox";
+import { Label } from "@repo/ui/label";
 import Link from "next/link";
+import PortfolioPieChart from "@/components/assets/PortfolioPieChart";
 
 // meta info
 export const metadata = {
