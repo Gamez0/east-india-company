@@ -1,0 +1,14 @@
+{
+    "name": "bithumb",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --port 3000",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint"
+    },
+    "dependencies": {
+        "recharts": "^3.5.1"
+    }
+}
