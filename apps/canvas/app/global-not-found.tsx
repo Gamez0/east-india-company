@@ -1,32 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
-const bithumbFont = localFont({
-    src: [
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Regular.woff2",
-            weight: "400",
-            style: "normal",
-        },
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Medium.woff2",
-            weight: "500",
-            style: "normal",
-        },
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Semibold.woff2",
-            weight: "600",
-            style: "normal",
-        },
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Bold.woff2",
-            weight: "700",
-            style: "normal",
-        },
-    ],
-});
 export const metadata: Metadata = {
     title: "빗썸 404 - Page Not Found",
     description: "The page you are looking for does not exist.",
@@ -43,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
     return (
-        <html lang="en" className={bithumbFont.className}>
+        <html lang="en">
             <body className="h-screen w-screen flex flex-col items-center justify-center gap-4">
                 <h1>404</h1>
                 <p>페이지가 존재하지 않습니다</p>
