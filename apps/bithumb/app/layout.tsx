@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Toaster } from "@repo/ui/sonner";
+import { Toaster } from "sonner";
 
 const bithumbFont = localFont({
     src: [
