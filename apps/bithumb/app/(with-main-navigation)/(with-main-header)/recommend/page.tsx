@@ -1,5 +1,5 @@
 import { TabsContent } from "@radix-ui/react-tabs";
-import { Tabs, TabsList, TabsTrigger } from "@repo/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@components/ui/tabs";
 import TopBuysTable from "./TopBuysTable";
 import GrowthRateTable from "./GrowthRateTable";
 import DeclineRateTable from "./DeclineRateTable";

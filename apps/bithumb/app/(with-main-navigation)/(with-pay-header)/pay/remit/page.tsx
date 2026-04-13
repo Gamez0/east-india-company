@@ -1,6 +1,6 @@
-import { Button } from "@repo/ui/button";
-import { Input } from "@repo/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/ui/tabs";
+import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 
 export default function Page() {
     return (

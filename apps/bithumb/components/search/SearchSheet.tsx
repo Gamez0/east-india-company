@@ -7,9 +7,9 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "@repo/ui/sheet";
-import { Button } from "@repo/ui/button";
-import { Badge } from "@repo/ui/badge";
+} from "@components/ui/sheet";
+import { Button } from "@components/ui/button";
+import { Badge } from "@components/ui/badge";
 import { ChevronLeft, X } from "lucide-react";
 import { useMemo, useState } from "react";
 

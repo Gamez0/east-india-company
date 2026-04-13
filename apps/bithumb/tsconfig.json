@@ -3,7 +3,8 @@
     "compilerOptions": {
         "paths": {
             "@repo/*": ["../../packages/*"],
-            "@/*": ["./*"]
+            "@/*": ["./*"],
+            "@components/*": ["./components/*"]
         }
     },
     "include": [

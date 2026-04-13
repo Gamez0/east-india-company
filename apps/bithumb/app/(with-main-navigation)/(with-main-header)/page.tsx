@@ -3,7 +3,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@repo/ui/accordion";
+} from "@components/ui/accordion";
 import {
     Select,
     SelectContent,
@@ -11,9 +11,9 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@repo/ui/select";
-import { Checkbox } from "@repo/ui/checkbox";
-import { Label } from "@repo/ui/label";
+} from "@components/ui/select";
+import { Checkbox } from "@components/ui/checkbox";
+import { Label } from "@components/ui/label";
 import Link from "next/link";
 import PortfolioPieChart from "@/components/assets/PortfolioPieChart";
 
