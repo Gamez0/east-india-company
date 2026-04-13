@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Toaster } from "@repo/ui/sonner";
 
 const bithumbFont = localFont({
     src: [
@@ -49,7 +48,6 @@ export default function RootLayout({
                 className={`${bithumbFont.className} antialiased w-full flex justify-center mx-auto max-w-[430px] bg-gray-200`}
             >
                 {children}
-                <Toaster />
             </body>
         </html>
     );
