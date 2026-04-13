@@ -1,0 +1,130 @@
+"use client";
+
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+import { AssetsIcon } from "@/components/icons/AssetsIcon";
+import { MarketIcon } from "@/components/icons/MarketIcon";
+import { DepositIcon } from "@/components/icons/DepositIcon";
+import { EtcIcon } from "@/components/icons/EtcIcon";
+
+const menuItems = [
+    { icon: "assets.svg", label: "자산현황", route: "/bithumb" },
+    { icon: "market.svg", label: "추천", route: "/bithumb/recommend" },
+    { icon: "deposit.svg", label: "페이", route: "/bithumb/pay" },
+    { icon: "etc.svg", label: "더보기", route: "/bithumb/menu" },
+];
+
+export default function MainNavigation() {
+    const pathName = usePathname();
+
+    const isAssetsPage = pathName === "/bithumb";
+    const isMarketPage = pathName === "/bithumb/recommend";
+    const isPayPage = pathName === "/bithumb/pay";
+    const isMenuPage = pathName === "/bithumb/menu";
+
+    return (
+        <nav
+            className="w-full h-14.5"
+            style={{ boxShadow: "0 1px 5px rgba(0,0,0,0.15)" }}
+        >
+            <ul className="w-full h-14.5 flex justify-end">
+                <li className="flex-1">
+                    <Link href={"/bithumb"}>
+                        <Button
+                            variant="ghost"
+                            className="w-full flex flex-col h-10 gap-0 mt-1.75 text-[#acb0b4]"
+                        >
+                            <AssetsIcon
+                                className={clsx(
+                                    "size-7",
+                                    isAssetsPage ? "text-[#1c2028]" : "",
+                                )}
+                            />
+
+                            <span
+                                className={clsx(
+                                    "text-[10px] leading-3",
+                                    isAssetsPage ? "text-[#1c2028]" : "",
+                                )}
+                            >
+                                {menuItems[0].label}
+                            </span>
+                        </Button>
+                    </Link>
+                </li>
+                <li className="flex-1">
+                    <Link href={"/bithumb/recommend"}>
+                        <Button
+                            variant="ghost"
+                            className="w-full flex flex-col h-10 gap-0 mt-1.75 text-[#acb0b4]"
+                        >
+                            <MarketIcon
+                                className={clsx(
+                                    "size-7",
+                                    isMarketPage ? "text-[#1c2028]" : "",
+                                )}
+                            />
+                            <span
+                                className={clsx(
+                                    "text-[10px] leading-3",
+                                    isMarketPage ? "text-[#1c2028]" : "",
+                                )}
+                            >
+                                {menuItems[1].label}
+                            </span>
+                        </Button>
+                    </Link>
+                </li>
+                <li className="flex-1">
+                    <Link href={"/bithumb/pay"}>
+                        <Button
+                            variant="ghost"
+                            className="w-full flex flex-col h-10 gap-0 mt-1.75 text-[#acb0b4]"
+                        >
+                            <DepositIcon
+                                className={clsx(
+                                    "size-7",
+                                    isPayPage ? "text-[#1c2028]" : "",
+                                )}
+                            />
+                            <span
+                                className={clsx(
+                                    "text-[10px] leading-3",
+                                    isPayPage ? "text-[#1c2028]" : "",
+                                )}
+                            >
+                                {menuItems[2].label}
+                            </span>
+                        </Button>
+                    </Link>
+                </li>
+                <li className="flex-1">
+                    <Link href={"/bithumb/menu"}>
+                        <Button
+                            variant="ghost"
+                            className="w-full flex flex-col h-10 gap-0 mt-1.75 text-[#acb0b4]"
+                        >
+                            <EtcIcon
+                                className={clsx(
+                                    "size-7",
+                                    isMenuPage ? "text-[#1c2028]" : "",
+                                )}
+                            />
+                            <span
+                                className={clsx(
+                                    "text-[10px] leading-3",
+                                    isMenuPage ? "text-[#1c2028]" : "",
+                                )}
+                            >
+                                {menuItems[3].label}
+                            </span>
+                        </Button>
+                        ;
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    );
+}
