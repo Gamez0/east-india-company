@@ -9,6 +9,7 @@
         "lint": "eslint"
     },
     "dependencies": {
+        "@repo/ui": "workspace:^",
         "recharts": "^3.5.1"
     }
 }
