@@ -1,31 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const bithumbFont = localFont({
-    src: [
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Regular.woff2",
-            weight: "400",
-            style: "normal",
-        },
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Medium.woff2",
-            weight: "500",
-            style: "normal",
-        },
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Semibold.woff2",
-            weight: "600",
-            style: "normal",
-        },
-        {
-            path: "../public/bithumb/fonts/BithumbTradingSans-Bold.woff2",
-            weight: "700",
-            style: "normal",
-        },
-    ],
-});
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -45,7 +19,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`${bithumbFont.className} antialiased w-full flex justify-center mx-auto max-w-[430px] bg-gray-200`}
+                className={`antialiased w-full flex justify-center mx-auto max-w-[430px] bg-gray-200`}
             >
                 {children}
             </body>
