@@ -1,12 +1,11 @@
 {
-    "name": "canvas",
-    "version": "0.0.1",
+    "name": "use-all",
+    "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --port 3002",
+        "dev": "next dev --port 3003",
         "build": "next build",
         "start": "next start",
         "lint": "eslint"
-    },
-    "dependencies": {}
+    }
 }

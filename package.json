@@ -7,7 +7,6 @@
         "lint": "turbo lint",
         "dev:bithumb": "turbo dev --filter=bithumb",
         "dev:bunjang": "turbo dev --filter=bunjang",
-        "dev:upbit": "turbo dev --filter=upbit",
         "dev:canvas": "turbo dev --filter=canvas",
         "dev:use-all": "turbo dev --filter=use-all",
         "dev:coding-test": "turbo dev --filter=coding-test"
