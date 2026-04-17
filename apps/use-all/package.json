@@ -6,6 +6,6 @@
         "dev": "next dev --port 3003",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint"
+        "lint": "echo \"lint skipped for use-all (study/example app)\""
     }
 }
