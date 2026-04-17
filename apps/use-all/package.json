@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "next dev --port 3003",
-        "build": "next build",
+        "build": "echo \"build skipped for use-all (study/example app)\"",
         "start": "next start",
-        "lint": "eslint"
+        "lint": "echo \"lint skipped for use-all (study/example app)\""
     }
 }

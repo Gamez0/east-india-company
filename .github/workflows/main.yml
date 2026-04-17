@@ -1,8 +1,10 @@
-name: node_modules-cache-fail-demo
+name: CI
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main", "dev"]
   workflow_dispatch:
 
 jobs:
@@ -11,39 +13,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "pnpm"
 
-      # pnpm 설치 (package.json의 packageManager 필드에서 버전 자동 감지)
-      - uses: pnpm/action-setup@v4
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      # ✅ 의도적으로 "node_modules"만 캐시 (pnpm store 캐시 X)
-      - name: Cache node_modules only (intentionally wrong for pnpm)
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            node-modules-${{ runner.os }}-
-
-      # 캐시가 실제로 복원됐는지 로그로 확인
-      - name: Inspect node_modules before install
-        run: |
-          echo "== node_modules exists? =="
-          if [ -d node_modules ]; then echo "YES"; else echo "NO"; fi
-          echo "== size =="
-          du -sh node_modules 2>/dev/null || true
-
-      # pnpm install + build
-      - name: Install
-        run: pnpm install
+      - name: Lint
+        run: pnpm run lint
 
       - name: Build
         run: pnpm run build
-
-      # 설치 후에도 store 위치를 확인해보면(대부분 홈 디렉토리) 캐시 안된 걸 볼 수 있음
-      - name: Show pnpm store path (not cached)
-        run: pnpm store path
+        env:
+          TURBO_TELEMETRY_DISABLED: 1
