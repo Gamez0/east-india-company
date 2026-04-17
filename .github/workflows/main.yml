@@ -16,10 +16,8 @@ jobs:
         with:
           node-version: 20
 
-      # pnpm 설치 (버전 고정 권장)
+      # pnpm 설치 (package.json의 packageManager 필드에서 버전 자동 감지)
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       # ✅ 의도적으로 "node_modules"만 캐시 (pnpm store 캐시 X)
       - name: Cache node_modules only (intentionally wrong for pnpm)
