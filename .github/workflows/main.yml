@@ -26,10 +26,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # On pull_request: only lint/build packages affected by the PR changes.
+      # On push to main/dev: run everything.
       - name: Lint
-        run: pnpm run lint
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            pnpm turbo lint --filter=...[origin/${{ github.base_ref }}]
+          else
+            pnpm turbo lint
+          fi
 
       - name: Build
-        run: pnpm run build
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            pnpm turbo build --filter=...[origin/${{ github.base_ref }}]
+          else
+            pnpm turbo build
+          fi
         env:
           TURBO_TELEMETRY_DISABLED: 1
