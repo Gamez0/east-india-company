@@ -55,6 +55,10 @@ east-india-company/
 - `eslint.config`: 각 앱 루트 (`eslint-config-next` 기반)
 - 공유 UI: `packages/ui/` — `@repo/ui`로 import
 
+## 기여 규칙
+
+브랜치명, 커밋 메시지, PR 형식은 [CONTRIBUTING.md](./CONTRIBUTING.md)를 따른다.
+
 ## 스터디 레포 규칙
 
 1. **각 앱은 독립적으로 실행 가능해야 한다** — 다른 앱에 의존하면 안 됨
