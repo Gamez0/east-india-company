@@ -17,6 +17,7 @@ The East India Company was also the world's first joint-stock company. This proj
 | `canvas` | Drawing with code using the Canvas API |
 | `coding-test` | Algorithm / PS problem solving |
 | `use-all` | JS / TS / React / Next.js concept practice |
+| `audio` | Web Audio API study |
 
 ## Getting Started
 
@@ -28,6 +29,7 @@ pnpm dev:bunjang    # port 3001
 pnpm dev:canvas     # port 3002
 pnpm dev:coding-test
 pnpm dev:use-all    # port 3003
+pnpm dev:audio      # port 3004
 ```
 
 ## Contributing

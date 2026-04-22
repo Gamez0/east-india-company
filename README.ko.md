@@ -17,6 +17,7 @@
 | `canvas` | Canvas API로 코드로 그림 그리기 |
 | `coding-test` | 알고리즘/PS 문제 풀이 |
 | `use-all` | JS/TS/React/Next.js 개념 실습 |
+| `audio` | Web Audio API 실습 |
 
 ## 시작하기
 
@@ -28,6 +29,7 @@ pnpm dev:bunjang    # port 3001
 pnpm dev:canvas     # port 3002
 pnpm dev:coding-test
 pnpm dev:use-all    # port 3003
+pnpm dev:audio      # port 3004
 ```
 
 ## 기여
