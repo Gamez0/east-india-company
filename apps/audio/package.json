@@ -1,0 +1,12 @@
+{
+    "name": "audio",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --port 3004",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint"
+    },
+    "dependencies": {}
+}

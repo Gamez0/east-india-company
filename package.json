@@ -9,7 +9,8 @@
         "dev:bunjang": "turbo dev --filter=bunjang",
         "dev:canvas": "turbo dev --filter=canvas",
         "dev:use-all": "turbo dev --filter=use-all",
-        "dev:coding-test": "turbo dev --filter=coding-test"
+        "dev:coding-test": "turbo dev --filter=coding-test",
+        "dev:audio": "turbo dev --filter=audio"
     },
     "dependencies": {
         "next": "16.2.3",
