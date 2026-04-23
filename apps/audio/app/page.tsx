@@ -1,7 +1,9 @@
+import AudioContextDemo from "./components/AudioContextDemo";
+
 export default function Home() {
-    return (
-        <main className="flex min-h-screen items-center justify-center">
-            <h1 className="text-2xl font-semibold">Audio</h1>
-        </main>
-    );
+  return (
+    <main className="min-h-screen bg-black text-white p-8">
+      <AudioContextDemo />
+    </main>
+  );
 }
