@@ -1,5 +1,6 @@
 import AudioContextDemo from "./components/AudioContextDemo";
 import AudioNodeGraphQuiz from "./components/AudioNodeGraphQuiz";
+import MediaElementSourceNodeExercise from "./components/MediaElementSourceNodeExercise";
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
       <AudioContextDemo />
       <hr className="border-white/10" />
       <AudioNodeGraphQuiz />
+      <hr className="border-white/10" />
+      <MediaElementSourceNodeExercise />
     </main>
   );
 }
