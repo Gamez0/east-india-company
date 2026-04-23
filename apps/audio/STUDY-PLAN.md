@@ -5,7 +5,7 @@
 - [x] `필` AudioContext — 생성, 생명주기(running/suspended/closed), 브라우저 autoplay 정책
 - [x] `필` AudioNode 그래프 — 소스→이펙트→destination 연결 구조, connect/disconnect
 - [x] `필` MediaElementSourceNode — `<audio>` 태그와 Web Audio API 연결 (포자랩스 방식)
-- [ ] `필` AudioBuffer & decodeAudioData — fetch→arrayBuffer→decode 파이프라인
+- [x] `필` AudioBuffer & decodeAudioData — fetch→arrayBuffer→decode 파이프라인
 - [ ] `필` GainNode — 볼륨 제어, mute/solo 패턴
 - [ ] `상` AnalyserNode — getByteTimeDomainData vs getByteFrequencyData, fftSize
 
