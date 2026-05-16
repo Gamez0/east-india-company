@@ -10,7 +10,8 @@
         "dev:canvas": "turbo dev --filter=canvas",
         "dev:use-all": "turbo dev --filter=use-all",
         "dev:coding-test": "turbo dev --filter=coding-test",
-        "dev:audio": "turbo dev --filter=audio"
+        "dev:audio": "turbo dev --filter=audio",
+        "dev:supertone-presentation": "turbo dev --filter=supertone-presentation"
     },
     "dependencies": {
         "next": "16.2.3",
