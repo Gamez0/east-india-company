@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Supertone Presentation",
-    description: "Supertone Presentation App",
+    title: "신도빈 - Frontend Engineer",
 };
 
 export default function RootLayout({
@@ -13,7 +12,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ko">
-            <body className="antialiased">{children}</body>
+            <head>
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
+                />
+            </head>
+            <body>{children}</body>
         </html>
     );
 }
