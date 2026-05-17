@@ -4,11 +4,19 @@ import { useEffect, useState, useCallback } from "react";
 import Intro1 from "./slides/Intro1";
 import Intro2 from "./slides/Intro2";
 import Intro3 from "./slides/Intro3";
+import Q1_1 from "./slides/Q1_1";
+import Q1_2 from "./slides/Q1_2";
+import Q1_3 from "./slides/Q1_3";
+import Q1_4 from "./slides/Q1_4";
 
 const slides = [
     <Intro1 key="intro1" />,
     <Intro2 key="intro2" />,
     <Intro3 key="intro3" />,
+    <Q1_1 key="q1_1" />,
+    <Q1_2 key="q1_2" />,
+    <Q1_3 key="q1_3" />,
+    <Q1_4 key="q1_4" />,
 ];
 
 export default function Presentation() {
