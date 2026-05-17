@@ -1,13 +1,20 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import Intro1 from "./slides/Intro1";
-import Intro2 from "./slides/Intro2";
-import Intro3 from "./slides/Intro3";
-import Q1_1 from "./slides/Q1_1";
-import Q1_2 from "./slides/Q1_2";
-import Q1_3 from "./slides/Q1_3";
-import Q1_4 from "./slides/Q1_4";
+import Intro1 from "./slides/Intro/Intro1";
+import Intro2 from "./slides/Intro/Intro2";
+import Intro3 from "./slides/Intro/Intro3";
+import Q1_1 from "./slides/Q1/Q1_1";
+import Q1_2 from "./slides/Q1/Q1_2";
+import Q1_3 from "./slides/Q1/Q1_3";
+import Q1_4 from "./slides/Q1/Q1_4";
+import Q2_1 from "./slides/Q2/Q2_1";
+import Q2_2 from "./slides/Q2/Q2_2";
+import Q2_3 from "./slides/Q2/Q2_3";
+import Q2_4 from "./slides/Q2/Q2_4";
+import Q2_5 from "./slides/Q2/Q2_5";
+import Q2_6 from "./slides/Q2/Q2_6";
+import Q2_7 from "./slides/Q2/Q2_7";
 
 const slides = [
     <Intro1 key="intro1" />,
@@ -17,6 +24,13 @@ const slides = [
     <Q1_2 key="q1_2" />,
     <Q1_3 key="q1_3" />,
     <Q1_4 key="q1_4" />,
+    <Q2_1 key="q2_1" />,
+    <Q2_2 key="q2_2" />,
+    <Q2_3 key="q2_3" />,
+    <Q2_4 key="q2_4" />,
+    <Q2_5 key="q2_5" />,
+    <Q2_6 key="q2_6" />,
+    <Q2_7 key="q2_7" />,
 ];
 
 export default function Presentation() {
