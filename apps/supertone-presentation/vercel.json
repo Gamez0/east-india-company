@@ -1,0 +1,6 @@
+{
+    "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+    "buildCommand": "cd ../.. && pnpm build --filter=supertone-presentation",
+    "outputDirectory": ".next",
+    "framework": "nextjs"
+}
