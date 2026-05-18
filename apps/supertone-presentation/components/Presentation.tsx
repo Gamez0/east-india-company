@@ -15,6 +15,12 @@ import Q2_4 from "./slides/Q2/Q2_4";
 import Q2_5 from "./slides/Q2/Q2_5";
 import Q2_6 from "./slides/Q2/Q2_6";
 import Q2_7 from "./slides/Q2/Q2_7";
+import Q3_1 from "./slides/Q3/Q3_1";
+import Q3_2 from "./slides/Q3/Q3_2";
+import Q3_3 from "./slides/Q3/Q3_3";
+import Q3_4 from "./slides/Q3/Q3_4";
+import Q3_5 from "./slides/Q3/Q3_5";
+import Q3_6 from "./slides/Q3/Q3_6";
 
 const slides = [
     <Intro1 key="intro1" />,
@@ -31,6 +37,12 @@ const slides = [
     <Q2_5 key="q2_5" />,
     <Q2_6 key="q2_6" />,
     <Q2_7 key="q2_7" />,
+    <Q3_1 key="q3_1" />,
+    <Q3_2 key="q3_2" />,
+    <Q3_3 key="q3_3" />,
+    <Q3_4 key="q3_4" />,
+    <Q3_5 key="q3_5" />,
+    <Q3_6 key="q3_6" />,
 ];
 
 export default function Presentation() {
